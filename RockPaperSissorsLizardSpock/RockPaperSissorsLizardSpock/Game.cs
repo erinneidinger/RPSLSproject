@@ -15,20 +15,46 @@ namespace RockPaperSissorsLizardSpock
             
         }
 
-        public void Menu()
+        public void MasterFunction()
         {
+            Menu();
+            PickOpponent();
+            //pickGesture
+            //draw
+
 
         }
-
-        public void pickOpponent(Player player)
+        public void Menu()
         {
-            //string opponentResult;
+            Console.WriteLine("Please write your name:");
+            string name = Console.ReadLine();
+            Console.WriteLine("Welcome " + name);
             
         }
 
-        public void pickGesture()
+        public void PickOpponent()
         {
-            //string> List;
+            Console.WriteLine("Please pick your opponent: press 1 for human, press 2 for computer:");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    Console.WriteLine("Your opponent is a human");
+                    //human class
+                    break;
+                case "2":
+                    Console.WriteLine("Your opponent is the computer");
+                    //computer class
+                    break;
+                case "quit":
+                    Console.WriteLine("Sorry to see you go!");
+                    Menu();
+                    break;
+                default:
+                    Console.WriteLine("Please pick an opponent to play.");
+                    PickOpponent();
+                    break;
+            }
         }
     }
 }

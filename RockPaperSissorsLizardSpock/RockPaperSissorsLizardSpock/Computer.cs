@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace RockPaperSissorsLizardSpock
 {
-    public class Computer
-    {
-        //place random class in here
+    public class Computer : Player
+    { 
 
         public Computer()
         {
-            Random rmd = new Random();
-            rmd.Next(0, 5);
+
+        }
+        public void RandomizeResults(List<string> gestures)
+        {
+            Random rnd = new Random();
+            string gestures = rnd.Next(0, 4);
         }
 
     }
