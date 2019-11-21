@@ -19,7 +19,7 @@ namespace RockPaperSissorsLizardSpock
         }
         public override void ChooseGesture()
         {
-            Console.WriteLine("These are your gesture choices: \nType the number next to the gesture to pick your choice. \n1) Rock \n2) Paper \n3) Sissors \n4) Lizard \n5) Spock \nChoose a gesture.");
+            Console.WriteLine("These are your gesture choices: \nType the number next to the gesture to pick your choice. \n1) Rock \n2) Paper \n3) Scissors \n4) Lizard \n5) Spock \nChoose a gesture.");
             string input = Console.ReadLine();
             switch(input)
             {
@@ -33,7 +33,7 @@ namespace RockPaperSissorsLizardSpock
                     break;
                 case "3":
                     gesture = "Sissors";
-                    Console.WriteLine("You picked Sissors.");
+                    Console.WriteLine("You picked Scissors.");
                     break;
                 case "4":
                     gesture = "Lizard";

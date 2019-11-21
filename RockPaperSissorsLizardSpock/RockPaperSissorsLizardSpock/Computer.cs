@@ -14,7 +14,7 @@ namespace RockPaperSissorsLizardSpock
         public override void ChooseName()
         {
             Random rnd = new Random();
-            List<string> names = new List<string>() { "Sheldon", "Raj", "Howard", "Leonard"};
+            List<string> names = new List<string>() { "Sheldon", "Raj", "Howard", "Leonard, Amy Ferrah Fowler"};
             name = names[rnd.Next(names.Count)];
             Console.WriteLine(name + " is your opponent for this game.");
         }
