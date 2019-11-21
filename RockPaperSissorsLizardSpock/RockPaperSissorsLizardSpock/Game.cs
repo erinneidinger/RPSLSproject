@@ -8,53 +8,63 @@ namespace RockPaperSissorsLizardSpock
 {
     public class Game
     {
-        public Player player;
+        Player player1;
+        Player player2;
 
         public Game()
-        {
-            
+        { 
         }
 
-        public void MasterFunction()
+        public string GetNumberPlayers()
         {
-            Menu();
-            PickOpponent();
-            //pickGesture
-            //draw
-
-
+            Console.WriteLine("How many players? Type 1 or 2.");
+            string numberPlayers = Console.ReadLine();
+            return numberPlayers;
         }
-        public void Menu()
+        public void CreatePlayers(string numberPlayers)
         {
-            Console.WriteLine("Please write your name:");
-            string name = Console.ReadLine();
-            Console.WriteLine("Welcome " + name);
-            
-        }
-
-        public void PickOpponent()
-        {
-            Console.WriteLine("Please pick your opponent: press 1 for human, press 2 for computer:");
-            string choice = Console.ReadLine();
-            switch (choice)
+            if(numberPlayers == "1")
             {
-                case "1":
-                    Console.WriteLine("Your opponent is a human");
-                    //human class
-                    break;
-                case "2":
-                    Console.WriteLine("Your opponent is the computer");
-                    //computer class
-                    break;
-                case "quit":
-                    Console.WriteLine("Sorry to see you go!");
-                    Menu();
-                    break;
-                default:
-                    Console.WriteLine("Please pick an opponent to play.");
-                    PickOpponent();
-                    break;
+                player1 = new Human();
+                player2 = new Computer();
             }
+            else if(numberPlayers == "2")
+            {
+                player1 = new Human();
+                player2 = new Human();
+            }
+        }
+        public void RunGame()
+        {
+            string input = GetNumberPlayers();
+            CreatePlayers(input);
+            player1.ChooseName();
+            player2.ChooseName();
+            player1.ChooseGesture();
+            player2.ChooseGesture();
+            CompareGestures();
+
+        }
+        public void CompareGestures()
+        {
+            Console.WriteLine(player1.gesture);
+            Console.WriteLine(player2.gesture);
+            if(player1.gesture == player2.gesture)
+            {
+                Console.WriteLine("It's a tie, let's replay that round");
+            }
+        }
+        public void IncrementWinnerScore()
+        {
+
+        }
+        public void DetermineGameWinner()
+        {
+
+        }
+        public void ReturnForNextGame()
+        {
+     
         }
     }
 }

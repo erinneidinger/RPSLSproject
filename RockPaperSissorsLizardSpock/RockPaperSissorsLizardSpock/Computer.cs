@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace RockPaperSissorsLizardSpock
 {
-    public class Computer : Player
-    { 
-
+    class Computer : Player
+    {
         public Computer()
-        {
-
+        { 
         }
-        public void RandomizeResults(List<string> gestures)
+        public override void ChooseName()
         {
             Random rnd = new Random();
-            string gestures = rnd.Next(0, 4);
+            List<string> names = new List<string>() { "Sheldon", "Raj", "Howard", "Lenard"};
+            string randomname = names[rnd.Next(names.Count)];
+            Console.WriteLine(randomname + " is your opponent for this game.");
         }
-
+        public override void ChooseGesture()
+        {
+            Random rnd = new Random();
+            string randomgestures = gestures[rnd.Next(gestures.Count)];
+            Console.WriteLine(randomgestures);
+        }
     }
 }
