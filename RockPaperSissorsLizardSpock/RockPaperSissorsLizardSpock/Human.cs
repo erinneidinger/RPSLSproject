@@ -20,26 +20,27 @@ namespace RockPaperSissorsLizardSpock
         public override void ChooseGesture()
         {
             Console.WriteLine("These are your gesture choices: \nType the number next to the gesture to pick your choice. \n1) Rock \n2) Paper \n3) Sissors \n4) Lizard \n5) Spock \nChoose a gesture.");
-            gesture = Console.ReadLine();
-            switch(gesture)
+            string input = Console.ReadLine();
+            switch(input)
             {
                 case "1":
+                    gesture = "Rock";
                     Console.WriteLine("You picked Rock.");
-
                     break;
                 case "2":
+                    gesture = "Paper";
                     Console.WriteLine("You picked Paper.");
-
                     break;
                 case "3":
+                    gesture = "Sissors";
                     Console.WriteLine("You picked Sissors.");
-
                     break;
                 case "4":
+                    gesture = "Lizard";
                     Console.WriteLine("You picked Lizard.");
-
                     break;
                 case "5":
+                    gesture = "Spock";
                     Console.WriteLine("You picked Spock.");
                     break;
                 case "quit":
@@ -50,7 +51,6 @@ namespace RockPaperSissorsLizardSpock
                     ChooseGesture();
                     break;
             }
-            Console.WriteLine("You picked " + gesture);
         }
     }
 }

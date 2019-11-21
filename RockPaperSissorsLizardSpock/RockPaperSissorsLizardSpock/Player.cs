@@ -11,11 +11,10 @@ namespace RockPaperSissorsLizardSpock
         public string name;
         public string gesture;
         public int score;
-        public List<string> gestures;
+        public List<string> gestures = new List<string>() { "Rock", "Paper", "Sissors", "Lizard", "Spock" };
 
         public Player()
         {
-            this.gestures = new List<string>() { "Rock", "Paper", "Sissors", "Lizard", "Spock" };
         }
 
         public abstract void ChooseName();
