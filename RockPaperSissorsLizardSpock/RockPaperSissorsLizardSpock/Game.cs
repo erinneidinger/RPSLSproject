@@ -43,6 +43,11 @@ namespace RockPaperSissorsLizardSpock
             player1.ChooseGesture();
             player2.ChooseGesture();
             CompareGestures();
+            IncrementWinnerScore();
+            DetermineGameWinner();
+        }
+        public void GestureHierachy()
+        {
 
         }
         public void CompareGestures()
@@ -52,6 +57,30 @@ namespace RockPaperSissorsLizardSpock
             if(player1.gesture == player2.gesture)
             {
                 Console.WriteLine("It's a tie, let's replay that round");
+            }
+            else if(player1.gesture == "Rock" && (player2.gesture == "Lizard" || player2.gesture == "Sissors"))
+            {
+                Console.WriteLine(player1.name + " wins!");
+            }
+            else if(player1.gesture == "Sissors" && (player2.gesture == "Lizard" || player2.gesture == "Paper"))
+            { 
+                Console.WriteLine(player1.name + " wins!"); 
+            }
+            else if (player1.gesture == "Paper" && (player2.gesture == "Rock" || player2.gesture == "Spock"))
+            {
+                Console.WriteLine(player1.name + " wins!");
+            }
+            else if (player1.gesture == "Lizard" && (player2.gesture == "Spock" || player2.gesture == "Paper"))
+            {
+                Console.WriteLine(player1.name + " wins!");
+            }
+            else if (player1.gesture == "Spock" && (player2.gesture == "Rock" || player2.gesture == "Sissors"))
+            {
+                Console.WriteLine(player1.name + " wins!");
+            }
+            else
+            {
+                Console.WriteLine(player2.name + "wins!");
             }
         }
         public void IncrementWinnerScore()

@@ -15,7 +15,7 @@ namespace RockPaperSissorsLizardSpock
 
         public Player()
         {
-            List<string> gestures = new List<string>() { "Rock", "Paper", "Sissors", "Lizard", "Spock" };
+            this.gestures = new List<string>() { "Rock", "Paper", "Sissors", "Lizard", "Spock" };
         }
 
         public abstract void ChooseName();
