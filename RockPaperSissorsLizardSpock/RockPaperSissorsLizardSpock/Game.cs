@@ -19,6 +19,26 @@ namespace RockPaperSissorsLizardSpock
         {
             Console.WriteLine("How many players? Type 1 to face to computer, type 2 to battle another person.");
             string numberPlayers = Console.ReadLine();
+            if (numberPlayers == "1" || numberPlayers == "2")
+            {
+                CreatePlayers(numberPlayers);
+            }
+            else
+            {
+                switch (numberPlayers)
+                {
+                    case "quit":
+                        Console.WriteLine("Quiting game now");
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Opps, try again.");
+                        Console.WriteLine("Please enter either 1 or 2, or exit the game by typing quit.");
+                        Console.WriteLine();
+                        GetNumberPlayers();
+                        break;
+                }
+            }
             return numberPlayers;
         }
         public void CreatePlayers(string numberPlayers)
@@ -33,29 +53,6 @@ namespace RockPaperSissorsLizardSpock
                 player1 = new Human();
                 player2 = new Human();
             }
-            else if(numberPlayers == "quit")
-            {
-                Console.WriteLine("Quiting game now");
-                Console.ReadLine();
-                Environment.Exit(0);
-            }
-            else
-            { 
-                Console.WriteLine("Opps, try again. If you want to exit, type quit.");
-                string input = Console.ReadLine();
-                switch (input)
-                {
-                case "quit":
-                        Console.WriteLine("Quiting game now");
-                        Console.ReadLine();
-                        Environment.Exit(0);
-                        break;
-                default:
-                        Console.WriteLine("Let's Play");
-                        RunGame();
-                        break;
-                }
-            }
         }
         public void RunGame()
         {
@@ -64,6 +61,7 @@ namespace RockPaperSissorsLizardSpock
             CreatePlayers(input);
             player1.ChooseName();
             player2.ChooseName();
+
             RunGameAgain();
         }
         public void RunGameAgain()
@@ -163,7 +161,7 @@ namespace RockPaperSissorsLizardSpock
         }
         public void IncrementWinnerScore()
         {
-            Console.WriteLine("This game is best out of three, so whoever wins two rounds out of three! \nHere are the current scores: \n" + player1.name + ": " + player1.score + "\n" + player2.name + ": " + player2.score);
+            Console.WriteLine("This game is best out of three, so whomever wins two rounds out of three! \nHere are the current scores: \n" + player1.name + ": " + player1.score + "\n" + player2.name + ": " + player2.score);
         }
         public void LoopingGame()
         {

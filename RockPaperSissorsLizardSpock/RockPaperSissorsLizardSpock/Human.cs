@@ -13,10 +13,11 @@ namespace RockPaperSissorsLizardSpock
         }
         public override void ChooseName()
         {
-            Console.WriteLine("Choose a name");
+            Console.WriteLine("Choose a name:");
             name = Console.ReadLine();
+            Console.WriteLine("Press Enter.");
+            Console.Clear();
             Console.WriteLine("Your name is " + name + ".");
-            Console.WriteLine("Press Enter to continue.");
             Console.ReadLine();
             Console.Clear();
         }
@@ -35,7 +36,7 @@ namespace RockPaperSissorsLizardSpock
                     Console.WriteLine("You picked Paper.");
                     break;
                 case "3":
-                    gesture = "Sissors";
+                    gesture = "Scissors";
                     Console.WriteLine("You picked Scissors.");
                     break;
                 case "4":
