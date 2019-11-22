@@ -17,7 +17,7 @@ namespace RockPaperSissorsLizardSpock
 
         public string GetNumberPlayers()
         {
-            Console.WriteLine("How many players? Type 1 or 2.");
+            Console.WriteLine("How many players? Type 1 to face to computer, type 2 to battle another person.");
             string numberPlayers = Console.ReadLine();
             return numberPlayers;
         }
@@ -32,6 +32,29 @@ namespace RockPaperSissorsLizardSpock
             {
                 player1 = new Human();
                 player2 = new Human();
+            }
+            else if(numberPlayers == "quit")
+            {
+                Console.WriteLine("Quiting game now");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
+            else
+            { 
+                Console.WriteLine("Opps, try again. If you want to exit, type quit.");
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                case "quit":
+                        Console.WriteLine("Quiting game now");
+                        Console.ReadLine();
+                        Environment.Exit(0);
+                        break;
+                default:
+                        Console.WriteLine("Let's Play");
+                        RunGame();
+                        break;
+                }
             }
         }
         public void RunGame()
@@ -57,17 +80,29 @@ namespace RockPaperSissorsLizardSpock
             Console.ReadLine();
             LoopingGame();
             DetermineGameWinner();
-
+            ReturnForNextGame();
         }
 
         public void ListingInstructions()
         {
-            Console.WriteLine("Hello! Welcome to the game ROCK PAPER SCISSORS LIZARD SPOCK. \nThis game is played like the traditional Rock, Paper, Scissors- but with a modern twist.");
+            Console.WriteLine("Hello!");
+            Console.WriteLine();
+            Console.WriteLine("Welcome to the game ROCK PAPER SCISSORS LIZARD SPOCK. \nThis game is played like the traditional Rock, Paper, Scissors- but with a modern twist.");
+            Console.WriteLine();
             Console.WriteLine("Press Enter to continue.");
             Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("Here are the rules of the game: \nFirst you pick who you would like to play- the computer or another person. \nNext, you will pick your action, and the second player will do the same. Then we battle and see who won. \nBelow we will list the options:");
+            Console.WriteLine("Here are the rules of the game:");
+            Console.WriteLine();
+            Console.WriteLine("First you pick who you would like to play- the computer or another person. \nNext, you will pick your action, and the second player will do the same. \nThen we battle and see who won.");
+            Console.WriteLine();
+            Console.WriteLine("Press Enter to continue.");
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Options are listed below of what can occur:");
+            Console.WriteLine();
             Console.WriteLine("Rock crushes Scissors \nScissors cut Paper \nPaper covers Rock \nRock crushes Lizard \nLizard poisons Spock \nSpock smashes Scissors \nScissors decapitates Lizard \nLizard eats Paper \nPaper disproves Spock \nSpock vaporizes Rock");
+            Console.WriteLine();
             Console.WriteLine("Press Enter to continue.");
             Console.ReadLine();
             Console.Clear();
@@ -75,7 +110,8 @@ namespace RockPaperSissorsLizardSpock
         public void CompareGestures()
         {
             Console.WriteLine(player1.name + " picked " + player1.gesture + ", while " + player2.name + " picked " + player2.gesture + ".") ;
-            Console.WriteLine("Time to battle it out and see who wins!");
+            Console.WriteLine();
+            Console.WriteLine("Time to battle it out and see who wins! Press enter to see who won.");
             Console.ReadLine();
             if(player1.gesture == player2.gesture)
             {
@@ -85,43 +121,49 @@ namespace RockPaperSissorsLizardSpock
             else if(player1.gesture == "Rock" && (player2.gesture == "Lizard" || player2.gesture == "Scissors"))
             {
                 Console.WriteLine(player1.gesture + " crushes " + player2.gesture + ", duh!");
+                Console.WriteLine();
                 Console.WriteLine(player1.name + " wins the round.");
                 player1.score++;
             }
             else if(player1.gesture == "Scissors" && (player2.gesture == "Lizard" || player2.gesture == "Paper"))
             {
                 Console.WriteLine(player1.gesture + " is superior over " + player2.gesture + ", of course.");
+                Console.WriteLine();
                 Console.WriteLine(player1.name + " wins the round.");
                 player1.score++;
             }
             else if (player1.gesture == "Paper" && (player2.gesture == "Rock" || player2.gesture == "Spock"))
             {
                 Console.WriteLine(player1.gesture + " will rule over " + player2.gesture + " in the end.");
+                Console.WriteLine();
                 Console.WriteLine(player1.name + " wins the round.");
                 player1.score++;
             }
             else if (player1.gesture == "Lizard" && (player2.gesture == "Spock" || player2.gesture == "Paper"))
             {
                 Console.WriteLine(player1.gesture + " beats " + player2.gesture + " everytime.");
+                Console.WriteLine();
                 Console.WriteLine(player1.name + " wins the round.");
                 player1.score++;
             }
             else if (player1.gesture == "Spock" && (player2.gesture == "Rock" || player2.gesture == "Scissors"))
             {
                 Console.WriteLine(player1.gesture + " always destroys " + player2.gesture + ".");
+                Console.WriteLine();
                 Console.WriteLine(player1.name + " wins the round.");
                 player1.score++;
             }
             else
             {
                 Console.WriteLine(player2.gesture + " will always get the best of " + player1.gesture + ", obviously!");
+                Console.WriteLine();
                 Console.WriteLine(player2.name + " wins the round.");
                 player2.score++;
             }
         }
         public void IncrementWinnerScore()
         {
-            Console.WriteLine("Remember, this game is best out of three rounds. \nHere are the current scores: \n" + player1.name + ": " + player1.score + "\n" + player2.name + ": " + player2.score);
+            Console.WriteLine("This game is best out of three, so whoever wins two rounds out of three! \nHere are the current scores: \n" + player1.name + ": " + player1.score + "\n" + player2.name + ": " + player2.score);
         }
         public void LoopingGame()
         {
@@ -142,18 +184,32 @@ namespace RockPaperSissorsLizardSpock
             if (player1.score == 2)
             {
                 Console.WriteLine("Congratulations " + player1.name + ", you won the game!");
-                Console.WriteLine("Better luck next time, " + player2.name);
+                Console.WriteLine();
+                Console.WriteLine("Better luck next time, " + player2.name + ".");
 
             }
             else if (player2.score == 2)
             {
                 Console.WriteLine("Congratulations " + player2.name + ", you won the game!");
-                Console.WriteLine("Better luck next time, " + player1.name);
+                Console.WriteLine();
+                Console.WriteLine("Better luck next time, " + player1.name + ".");
             }
         }
         public void ReturnForNextGame()
         {
-            Console.WriteLine("Thanks for playing!");
-        }
-    }
+            Console.WriteLine("Thanks for playing! Press 1 to exit out, press any key to play again.");
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    Console.WriteLine("You are now exiting the game, goodbye!");
+                    Console.ReadLine();
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Let's Play");
+                    RunGame();
+                    break;
+            }
+    }    }
 }

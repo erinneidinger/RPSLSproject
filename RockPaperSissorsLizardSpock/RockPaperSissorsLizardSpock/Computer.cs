@@ -14,15 +14,21 @@ namespace RockPaperSissorsLizardSpock
         public override void ChooseName()
         {
             Random rnd = new Random();
-            List<string> names = new List<string>() { "Sheldon", "Raj", "Howard", "Leonard, Amy Ferrah Fowler"};
+            List<string> names = new List<string>() { "Sheldon", "Raj", "Howard", "Leonard"};
             name = names[rnd.Next(names.Count)];
             Console.WriteLine(name + " is your opponent for this game.");
+            Console.WriteLine();
+            Console.WriteLine("Press Enter to continue.");
+            Console.ReadLine();
+            Console.Clear();
         }
         public override void ChooseGesture()
         {
             Random rnd = new Random();
             gesture = gestures[rnd.Next(gestures.Count)];
             Console.WriteLine(name + " chose " + gesture + ".");
+            Console.WriteLine();
+            Console.WriteLine("Press Enter to continue.");
         }
     }
 }

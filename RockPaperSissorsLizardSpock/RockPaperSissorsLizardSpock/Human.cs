@@ -16,10 +16,13 @@ namespace RockPaperSissorsLizardSpock
             Console.WriteLine("Choose a name");
             name = Console.ReadLine();
             Console.WriteLine("Your name is " + name + ".");
+            Console.WriteLine("Press Enter to continue.");
+            Console.ReadLine();
+            Console.Clear();
         }
         public override void ChooseGesture()
         {
-            Console.WriteLine("These are your gesture choices: \nType the number next to the gesture to pick your choice. \n1) Rock \n2) Paper \n3) Scissors \n4) Lizard \n5) Spock \nChoose a gesture.");
+            Console.WriteLine("These are your gesture choices: \nType the number next to the gesture to pick your choice and then press Enter. \n1) Rock \n2) Paper \n3) Scissors \n4) Lizard \n5) Spock \nChoose a gesture.");
             string input = Console.ReadLine();
             switch(input)
             {
